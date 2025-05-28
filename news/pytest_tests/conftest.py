@@ -115,13 +115,13 @@ def url_to_comments(detail_url):
 @pytest.fixture
 def edit_url(id_for_comment):
     """Возвращает адрес для редактирования комментария."""
-    return reverse('news:edit',  args=id_for_comment)
+    return reverse('news:edit', args=id_for_comment)
 
 
 @pytest.fixture
 def delete_url(id_for_comment):
     """Возвращает адрес для удаления комментария."""
-    return reverse('news:delete',  args=id_for_comment)
+    return reverse('news:delete', args=id_for_comment)
 
 
 @pytest.fixture

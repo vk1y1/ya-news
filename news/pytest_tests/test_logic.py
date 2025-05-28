@@ -50,7 +50,7 @@ def test_author_can_delete_comment(
         url_to_comments,
         http_status_found,
         zero_comment
-        ):
+):
     """Проверяет возможность удалять комментарий автором."""
     response = author_client.delete(delete_url)
     assertRedirects(response, url_to_comments)
@@ -67,7 +67,7 @@ def test_user_cant_delete_comment_of_another_user(
         url_to_comments,
         http_status_not_found,
         one_comment
-        ):
+):
     """Проверяет невозможность удалять чужой комментарий читателем."""
     response = reader_client.delete(delete_url)
     assert response.status_code == http_status_not_found
@@ -82,7 +82,7 @@ def test_author_can_edit_comment(
         edit_url,
         new_form_data,
         url_to_comments
-        ):
+):
     """Проверяет возможность редактировать комментарий автором."""
     response = author_client.post(edit_url, data=new_form_data)
     assertRedirects(response, url_to_comments)
@@ -98,7 +98,7 @@ def test_user_cant_edit_comment_of_another_user(
         form_data,
         new_form_data,
         http_status_not_found
-        ):
+):
     """Проверяет невозможность редактировать чужой комментарий читателем."""
     response = reader_client.post(edit_url, data=new_form_data)
     assert response.status_code == http_status_not_found
